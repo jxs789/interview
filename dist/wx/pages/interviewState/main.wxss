@@ -1,0 +1,15 @@
+
+.interview.data-v-45809e65 {
+  background: #ffff;
+  border-bottom: 2rpx solid #ccc;
+  border-top: 2rpx solid #ccc;
+  margin-bottom: 50rpx;
+}
+.interview ._li.data-v-45809e65 {
+  display: flex;
+  height: 130rpx;
+  line-height: 130rpx;
+  border-bottom: 2rpx solid #ccc;
+  margin-left: 40rpx;
+  color: #666;
+}

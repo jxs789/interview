@@ -1,0 +1,30 @@
+<template name="4a5a65ca">
+  <view class="_div data-v-2184174a wrap">
+    <view class="_div data-v-2184174a head">
+      <view class="_dl data-v-2184174a">
+        <view class="_dt data-v-2184174a">
+          <view class="_p data-v-2184174a iconfont icon-wode"></view>
+        </view>
+        <view class="_dd data-v-2184174a">176****4444</view>
+      </view>
+    </view>
+    <view class="_ul data-v-2184174a">
+      <view class="_li data-v-2184174a">
+        <navigator url="/pages/interviewList/main" class="_navigator data-v-2184174a">
+          <view class="_div data-v-2184174a"><label class="_span data-v-2184174a iconfont icon-solid-time"></label>
+            <view class="_p data-v-2184174a">我的面试</view>
+          </view>
+          <view class="_i data-v-2184174a iconfont icon-qianjin"></view>
+        </navigator>
+      </view>
+      <view class="_li data-v-2184174a">
+        <navigator class="_navigator data-v-2184174a">
+          <view class="_div data-v-2184174a"><label class="_span data-v-2184174a twoLi iconfont icon-InfoFilled"></label>
+            <view class="_p data-v-2184174a">客服中心</view>
+          </view>
+          <view class="_i data-v-2184174a iconfont icon-qianjin"></view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</template>

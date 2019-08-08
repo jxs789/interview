@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/viewAddress/main",
+    "pages/home/main",
+    "pages/interviewList/main",
+    "pages/personalCenter/main",
+    "pages/interviewState/main",
+    "pages/interviewLocation/main",
+    "pages/addInterview/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "一面而就",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

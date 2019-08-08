@@ -1,0 +1,12 @@
+<template name="42568798">
+  <view class="_div data-v-3dd63174 wrap">
+    <view class="_section data-v-3dd63174"><map longitude="{{longitude}}" latitude="{{latitude}}" show-location class="_map data-v-3dd63174">
+        <cover-view bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_cover-view data-v-3dd63174">
+          <cover-view class="_cover-view data-v-3dd63174 iconfont icon-weizhi"></cover-view>
+        </cover-view>
+      </map>
+      <navigator url="/pages/personalCenter/main" class="_navigator data-v-3dd63174 userinfo iconfont icon-wode" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"></navigator>
+    </view>
+    <view class="_footer data-v-3dd63174 footer" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">添加面试</view>
+  </view>
+</template>

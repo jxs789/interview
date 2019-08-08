@@ -1,0 +1,22 @@
+
+.wrap.data-v-40a29f20 {
+  width: 100%;
+  height: 100%;
+}
+.wrap .head.data-v-40a29f20 {
+  width: 100%;
+  height: 90rpx;
+  border-bottom: 2rpx solid #eee;
+  border-top: 2rpx solid #eee;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+.wrap .head ._span.data-v-40a29f20 {
+  width: 20%;
+  text-align: center;
+  border-right: 2rpx solid #eee;
+}
+.wrap .head ._input.data-v-40a29f20 {
+  padding: 0 20rpx;
+}

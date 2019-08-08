@@ -1,0 +1,18 @@
+<template name="349193e6">
+  <view class="_div data-v-006b59c0 listBox">
+    <view class="_ul data-v-006b59c0 status">
+      <view wx:key="item.status" key="{{item.status}}" bindtap="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" wx:for="{{navList}}" wx:for-index="index" wx:for-item="item" class="_li data-v-006b59c0 {{[index === ind ? 'active' : '']}}">{{item.title}}</view>
+    </view>
+    <view class="_ul data-v-006b59c0 main">
+      <view wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" class="_li data-v-006b59c0">
+        <view class="_div data-v-006b59c0 address">
+          <view class="_h1 data-v-006b59c0">{{item.company}}</view> <label class="_span data-v-006b59c0 no_begin">{{getstatus}}</label>
+        </view>
+        <view class="_p data-v-006b59c0 detailed_address">{{item.address.address}}</view>
+        <view class="_div data-v-006b59c0 time">
+          <view class="_h3 data-v-006b59c0">面试时间:{{item.start_time}}</view> <label class="_span data-v-006b59c0 no_remind">{{getstatus}}</label>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

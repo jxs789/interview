@@ -1,0 +1,21 @@
+<template name="6e56ece5">
+  <view class="_div data-v-45809e65">
+    <view class="_ul data-v-45809e65 interview">
+      <view class="_li data-v-45809e65"><label class="_span data-v-45809e65">面试地址:</label>
+        <view class="_p data-v-45809e65"></view>
+      </view>
+      <view class="_li data-v-45809e65"><label class="_span data-v-45809e65">面试时间:</label>
+        <view class="_p data-v-45809e65"></view>
+      </view>
+      <view class="_li data-v-45809e65"><label class="_span data-v-45809e65">联系方式:</label>
+        <view class="_p data-v-45809e65"></view>
+      </view>
+      <view class="_li data-v-45809e65"><label class="_span data-v-45809e65">是否提醒:</label>
+        <view class="_p data-v-45809e65"></view>
+      </view>
+      <view class="_li data-v-45809e65"><label class="_span data-v-45809e65">面试状态:</label>
+        <view class="_p data-v-45809e65"></view>
+      </view>
+    </view>
+  </view>
+</template>

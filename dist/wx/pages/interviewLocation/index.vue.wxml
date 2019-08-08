@@ -1,0 +1,25 @@
+<template name="a6dcb586">
+  <view class="_div data-v-6597c5f7">
+    <view class="_ul data-v-6597c5f7 interview">
+      <view class="_li data-v-6597c5f7"><label class="_span data-v-6597c5f7">面试地址:</label>
+        <view class="_p data-v-6597c5f7"></view>
+      </view>
+      <view class="_li data-v-6597c5f7"><label class="_span data-v-6597c5f7">面试时间:</label>
+        <view class="_p data-v-6597c5f7"></view>
+      </view>
+      <view class="_li data-v-6597c5f7"><label class="_span data-v-6597c5f7">联系方式:</label>
+        <view class="_p data-v-6597c5f7"></view>
+      </view>
+      <view class="_li data-v-6597c5f7"><label class="_span data-v-6597c5f7">是否提醒:</label>
+        <view class="_p data-v-6597c5f7"></view>
+      </view>
+      <view class="_li data-v-6597c5f7"><label class="_span data-v-6597c5f7">面试状态:</label>
+        <view class="_p data-v-6597c5f7"></view>
+      </view>
+      <view class="_li data-v-6597c5f7"><label class="_span data-v-6597c5f7">取消提醒:</label>
+        <view class="_p data-v-6597c5f7"></view>
+      </view>
+    </view>
+    <view class="_div data-v-6597c5f7 btnBox"><button class="_button data-v-6597c5f7 punch_card">去打卡</button> <button class="_button data-v-6597c5f7 abandon_interview">放弃面试</button></view>
+  </view>
+</template>

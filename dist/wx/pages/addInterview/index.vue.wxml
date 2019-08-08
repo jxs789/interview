@@ -1,0 +1,11 @@
+<template name="4bdc60f5">
+  <view class="_div data-v-0e707335">
+    <view class="_h4 data-v-0e707335">面试信息</view>
+    <view class="_ul data-v-0e707335 interview">
+      <view class="_li data-v-0e707335"><label class="_span data-v-0e707335">公司名称</label> <input type="text" placeholder="请输入名称" class="_input data-v-0e707335" /></view>
+      <view class="_li data-v-0e707335"><label class="_span data-v-0e707335">公司电话</label> <input type="text" placeholder="请输入面试联系人电话" class="_input data-v-0e707335" /></view>
+      <view class="_li data-v-0e707335"><label class="_span data-v-0e707335">面试时间</label> <input type="text" placeholder="2019-08-06 17:00" class="_input data-v-0e707335" /></view>
+      <view class="_li data-v-0e707335"><label class="_span data-v-0e707335">面试地址</label> <input type="text" placeholder="请选择面试地址" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-0e707335" /></view>
+    </view>
+    <view class="_h4 data-v-0e707335">备注信息</view>
+    <view class="_div data-v-0e707335 contBox"><textarea class="_textarea data-v-0e707335 txt" /></view> <button class="_button data-v-0e707335 btn">确认</button></view></template>

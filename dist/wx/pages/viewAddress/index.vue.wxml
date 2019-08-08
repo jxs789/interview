@@ -1,0 +1,9 @@
+<template name="59e12c14">
+  <view class="_div data-v-40a29f20 wrap">
+    <view class="_div data-v-40a29f20 head"><label class="_span data-v-40a29f20">北京</label> <input type="text" value="{{inp}}" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-40a29f20" /></view>
+    <view class="_ol data-v-40a29f20">
+      <view class="_li data-v-40a29f20"></view>
+      <view class="_li data-v-40a29f20"></view>
+    </view>
+  </view>
+</template>

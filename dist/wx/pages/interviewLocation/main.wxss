@@ -1,0 +1,30 @@
+
+.interview.data-v-6597c5f7 {
+  background: #ffff;
+  border-bottom: 2rpx solid #ccc;
+  border-top: 2rpx solid #ccc;
+  margin-bottom: 50rpx;
+}
+.interview ._li.data-v-6597c5f7 {
+  display: flex;
+  height: 130rpx;
+  line-height: 130rpx;
+  border-bottom: 2rpx solid #ccc;
+  margin-left: 40rpx;
+  color: #666;
+}
+.btnBox.data-v-6597c5f7 {
+  width: 100%;
+  display: flex;
+}
+.punch_card.data-v-6597c5f7,
+.abandon_interview.data-v-6597c5f7 {
+  width: 40%;
+  color: #ffff;
+}
+.btnBox ._button.data-v-6597c5f7:nth-of-type(1) {
+  background: #197dbf;
+}
+.btnBox ._button.data-v-6597c5f7:nth-of-type(2) {
+  background: #dc4e42;
+}
