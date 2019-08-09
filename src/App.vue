@@ -1,6 +1,12 @@
 <script>
 import { login } from "@/service/";
+import {mapMutations} from 'vuex'
 export default {
+  methods:{
+    ...mapMutations({
+      updateOpenid:"user/updateOpenid"
+    })
+  },
   created() {
     // 调用API从本地缓存中获取数据
     /*
@@ -17,6 +23,7 @@ export default {
         if (res.code) {
           //发起网络请求
           let data = await login(res.code);
+          this.updateOpenid(data.data.openid)
           // console.log("res...", data);
         } else {
           console.log("登录失败！" + res.errMsg);

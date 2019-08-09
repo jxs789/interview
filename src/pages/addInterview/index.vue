@@ -46,7 +46,7 @@
 </template>
 <script>
 const moment = require("moment");
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
 const range = [
   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
   [
@@ -130,7 +130,10 @@ export default {
   },
   methods: {
     ...mapActions({
-      submitInterview:'addList/submitInterview'
+      submitInterview: "addList/submitInterview"
+    }),
+    ...mapMutations({
+      updateItem: "addList/updateItem"
     }),
     gotoAddress() {
       wx.navigateTo({
@@ -189,6 +192,7 @@ export default {
       this.current.start_time = moment(this.dateShow).unix() * 1000;
       // 添加form_id
       this.current.form_id = e.target.formId;
+      console.log("888", e.target.formId);
       this.submiting = true;
       let data = await this.submitInterview(this.current);
       console.log("data...", data);
@@ -203,13 +207,13 @@ export default {
           confirmColor: "#197DBF", //确定按钮的文字颜色,
           success: res => {
             if (res.confirm) {
-              this.updateState({
+              this.updateItem({
                 form_id: "",
                 company: "",
                 address: "",
                 phone: ""
               });
-              // wx.navigateTo({ url: "/pages/sign/list/main" });
+              wx.navigateTo({ url: "/pages/interviewList/main" });
             }
           }
         });
@@ -227,9 +231,7 @@ export default {
       this.info.date = [1, 0, 0];
     }
   },
-  mounted() {
-    console.log('44',this.current);
-  }
+  mounted() {}
 };
 </script>
 <style scoped lang="scss">

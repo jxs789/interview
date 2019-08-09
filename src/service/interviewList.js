@@ -6,10 +6,15 @@ export let getViewList = (params) => {
     } else {
         return fly.get('/sign', params)
     }
-
 }
 
 //详情
 export let getDetail = (id) => {
     return fly.get(`/sign/${id}`)
+}
+
+//更新面试信息接口
+export let putsignDetail = (id, params) => {
+    console.log('9999', id, params)
+    return fly.put('/sign/' + id, params);
 }
