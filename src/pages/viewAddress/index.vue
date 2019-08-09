@@ -4,14 +4,19 @@
       <span>北京</span>
       <input type="text" v-model="inp" @input="handelChange" />
     </div>
-    <ol>
-      <li></li>
-      <li></li>
+    <ol v-if="addressData.length>0">
+      <li v-for="(item,index) in addressData" :key="item.id" @click="gotoback(index)">
+        <p class="iconfont icon-zhifeiji"></p>
+        <div>
+          <h2>{{item.title}}</h2>
+          <span>{{item.address}}</span>
+        </div>
+      </li>
     </ol>
   </div>
 </template>
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   props: {},
   components: {},
@@ -20,19 +25,48 @@ export default {
       inp: ""
     };
   },
-  computed: {},
+  computed: {
+    ...mapState({
+      addressData: state => state.address.addressData
+    })
+  },
   methods: {
     handelChange() {
-      this.getSuggestion(this.inp);
+      if (this.inp) {
+        this.getSuggestion(this.inp);
+      }
     },
     ...mapActions({
       getSuggestion: "address/getSuggestion"
-    })
+    }),
+    ...mapMutations({
+      updateItem: "addList/updateItem"
+    }),
+    //点击把地址带到添加页
+    gotoback(index) {
+      this.updateItem({
+        address: this.addressData[index]
+      });
+      wx.navigateTo({
+        url: "/pages/addInterview/main"
+      });
+    }
   },
-  created() {},
-  mounted() {
-    console.log(this.getSuggestion())
-  }
+  created() {
+    // var that = this;
+    // // 使用函数防抖控制事件触发频率
+    // this.search = debounce(val => {
+    //   this.$map.search({
+    //     keyword: val,
+    //     region: "北京",
+    //     success: function(res) {
+    //       console.log(res);
+    //       that.addressData = res.data;
+    //     }
+    //   });
+    // }, 300);
+  },
+  mounted() {}
 };
 </script>
 <style scoped lang="scss">
@@ -41,7 +75,7 @@ export default {
   height: 100%;
   .head {
     width: 100%;
-    height: 90rpx;
+    height: 80rpx;
     border-bottom: 1px solid #eee;
     border-top: 1px solid #eee;
     display: flex;
@@ -54,6 +88,28 @@ export default {
     }
     input {
       padding: 0 20rpx;
+    }
+  }
+  ol {
+    li {
+      display: flex;
+      align-items: center;
+      padding: 15rpx 60rpx;
+      box-sizing: border-box;
+      border-bottom: 1px solid #eee;
+      p {
+        color: #1a7dc0;
+        font-weight: bold;
+        padding: 0 20rpx;
+        box-sizing: border-box;
+      }
+      div {
+        line-height: 30rpx;
+        span {
+          font-size: 20rpx;
+          color: #999;
+        }
+      }
     }
   }
 }

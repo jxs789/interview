@@ -8,11 +8,11 @@ export default {
     //命名空间
     namespaced: true,
     state: {
-        addressData:[]
+        addressData: []
     },
     mutations: {
-        updateAddress(){
-            
+        updateAddress(state, payload) {
+            state.addressData = payload
         }
     },
     actions: {
@@ -20,7 +20,8 @@ export default {
             qqMapSdk.getSuggestion({
                 keyword: payload,
                 success: res => {
-                    console.log('res...', res);
+                    // console.log('res...', res);
+                    commit('updateAddress', res.data)
                 }
             })
         }

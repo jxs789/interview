@@ -1,6 +1,15 @@
 import fly from '@/utils/request';
 //登录接口
 export let getViewList = (params) => {
-    // console.log('ser...',params)
-    return fly.get('/sign',params)
+    if (params.status === 2) {
+        return fly.get('/sign', { page: params.page, pageSize: params.pageSize })
+    } else {
+        return fly.get('/sign', params)
+    }
+
+}
+
+//详情
+export let getDetail = (id) => {
+    return fly.get(`/sign/${id}`)
 }

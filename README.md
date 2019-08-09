@@ -1,6 +1,6 @@
 # sign
 
-> A Mpvue project
+> 一面而就
 
 ## Build Setup
 
@@ -10,7 +10,7 @@ vue init mpvue/mpvue-quickstart myproject
 cd myproject
 
 # 安装依赖
-yarn
+npm install
 
 # 开发时构建
 npm dev
@@ -35,3 +35,19 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+## 功能列表
+
+- [x] 定位功能
+- [x] 我的功能
+    - [x] 绑定手机号
+- [x] 面试功能
+    - [x] 添加面试
+    - [x] 面试列表
+    - [x] 面试详情
+    - [x] 面试分享
+    - [x] 面试推送
+    - [x] 打卡功能
+    - [ ] 面试导航
+- [ ] 支付功能

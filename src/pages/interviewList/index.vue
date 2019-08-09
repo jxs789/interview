@@ -9,7 +9,7 @@
       >{{item.title}}</li>
     </ul>
     <ul class="main">
-      <li v-for="(item,index) in list" :key="index">
+      <li v-for="(item,index) in list" :key="index" @click="gotoDetail(item.id)">
         <div class="address">
           <h1>{{item.company}}</h1>
           <span class="no_begin">{{getstatus}}</span>
@@ -17,7 +17,10 @@
         <p class="detailed_address">{{item.address.address}}</p>
         <div class="time">
           <h3>面试时间:{{item.start_time}}</h3>
-          <span class="no_remind">{{getstatus}}</span>
+          <span
+            class="no_remind"
+            :class="{gray:item.status === 1}"
+          >{{item.remind === -1 ? "未提醒" : "已提醒"}}</span>
         </div>
       </li>
     </ul>
@@ -42,28 +45,26 @@ export default {
       list: state => state.interviewList.list
     }),
     getstatus() {
-      console.log(this.list);
+      // console.log(this.list);
       let str = "";
       this.list.forEach(item => {
-        // console.log("item...", item);
         if (item.status === -1) {
           str = "未开始";
         } else if (item.status === 1) {
           str = "已放弃";
-        } else if(item.status === 0){
+        } else if (item.status === 0) {
           str = "已打卡";
-        }else{
-          str = "全部";
         }
       });
-      // console.log("str..", str);
       return str;
     }
   },
   methods: {
     ...mapActions({
-      getList: "interviewList/getList"
+      getList: "interviewList/getList",
+      getDetail: "interviewList/getDetail"
     }),
+    //tab切换
     tabClick(payload) {
       this.ind = payload.index;
       let page = this.page;
@@ -72,14 +73,29 @@ export default {
         status: payload.status,
         page,
         pageSize
+      })
+    },
+    //详情
+    gotoDetail(id) {
+      this.getDetail(id);
+      wx.navigateTo({
+        url: "/pages/addressDetail/main"
       });
     }
   },
   created() {
-    // console.log(this.getstatus)
+    //默认首页的数据
+    let page = this.page;
+    let pageSize = this.pageSize;
+    this.getList({
+      status: this.status,
+      page,
+      pageSize
+    });
   },
 
-  mounted() {}
+  mounted() {},
+ 
 };
 </script>
 <style scoped lang="">
