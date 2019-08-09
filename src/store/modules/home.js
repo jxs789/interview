@@ -16,7 +16,7 @@ export default {
             wx.getLocation({
                 type: 'wgs84',
                 success(res) {
-                    console.log('44',res)
+                    // console.log('44',res)
                     commit('updateLocation', res)
                 }
             })

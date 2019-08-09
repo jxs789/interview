@@ -1,4 +1,4 @@
-import { getViewList, getDetail } from '../../service'
+import { getViewList, getDetail, putsignDetail } from '../../service'
 const moment = require('moment');
 
 function formatTime(start_time) {
@@ -9,6 +9,7 @@ export default {
     //命名空间
     namespaced: true,
     state: {
+        status: 1,
         navList: [{
             title: "未开始",
             status: -1
@@ -26,14 +27,14 @@ export default {
             status: 2
         }],
         list: [],
-        ind: 0,
-        detailData: [],
         obj: {},
         id: 0
     },
     mutations: {
         updateList(state, payload) {
+            // console.log(',,,,',payload)
             state.list = payload
+
         },
         updateDetail(state, payload) {
             state.obj = { ...state.obj, ...payload };
@@ -50,7 +51,6 @@ export default {
                 item.start_time = formatTime(item.start_time);
             })
             if (params.page === 1) {
-                // console.log(res.data)
                 commit('updateList', res.data)
             } else {
                 commit('updateList', [...state.list, ...res.data])
@@ -61,5 +61,13 @@ export default {
             const res = await getDetail(params);
             commit('updateDetail', res.data)
         },
+        //更新面试信息接口
+        async putDetail({ commit }, params) {
+            const res = await putsignDetail(params.id, params.params);
+            if (res.data.code === 0) {
+                dispatch('getDetail', params.id)
+            }
+            resolve(data);
+        }
     },
 }

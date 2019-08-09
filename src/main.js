@@ -3,6 +3,7 @@ import App from './App'
 //引入store
 import store from './store'
 import './iconfont/iconfont.css'
+import MyMap from "./components/map.vue"
 
 Vue.config.productionTip = false
 App.mpType = 'app'
@@ -10,5 +11,6 @@ App.mpType = 'app'
 //挂载store
 Vue.prototype.$store = store
 
+Vue.component("MyMap",MyMap)
 const app = new Vue(App)
 app.$mount()

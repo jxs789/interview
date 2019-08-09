@@ -8,7 +8,7 @@
         @click="tabClick({index,status:item.status})"
       >{{item.title}}</li>
     </ul>
-    <ul class="main">
+    <ul class="main" v-if="list.length">
       <li v-for="(item,index) in list" :key="index" @click="gotoDetail(item.id)">
         <div class="address">
           <h1>{{item.company}}</h1>
@@ -24,6 +24,7 @@
         </div>
       </li>
     </ul>
+    <div v-else class="none">没有更多数据了</div>
   </div>
 </template>
 <script>
@@ -45,7 +46,6 @@ export default {
       list: state => state.interviewList.list
     }),
     getstatus() {
-      // console.log(this.list);
       let str = "";
       this.list.forEach(item => {
         if (item.status === -1) {
@@ -66,6 +66,7 @@ export default {
     }),
     //tab切换
     tabClick(payload) {
+      // console.log('44444',this.list.length)
       this.ind = payload.index;
       let page = this.page;
       let pageSize = this.pageSize;
@@ -84,17 +85,10 @@ export default {
     }
   },
   created() {
-    //默认首页的数据
-    let page = this.page;
-    let pageSize = this.pageSize;
-    this.getList({
-      status: this.status,
-      page,
-      pageSize
-    });
   },
 
-  mounted() {},
+  mounted() {
+  },
  
 };
 </script>
@@ -158,5 +152,8 @@ export default {
 .active {
   color: #0faeff;
   border-bottom: 1px solid #0faeff;
+}
+.none{
+  /* display: block; */
 }
 </style>

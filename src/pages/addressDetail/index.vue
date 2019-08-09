@@ -27,13 +27,9 @@
       </p>
       <div class="btnDiv" v-if="obj.status === -1">
         <button @tap="goToCard">去打卡</button>
-        <button @tap="giveup">放弃面试</button>
+        <button @tap="giveup" @click="give">放弃面试</button>
       </div>
     </form>
-    <div class="btnDiv" v-if="obj.status === -1">
-      <button @tap="goToCard">去打卡</button>
-      <button @tap="giveup">放弃面试</button>
-    </div>
   </div>
 </template>
 <script>
@@ -73,19 +69,29 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      putDetail: "interviewList/putDetail"
+    }),
     //取消提醒
     async cancelRemind(e) {
-      let data = await this.updatedList({
+      await this.putDetail({
         id: this.id,
         params: { remind: e.target.value ? 1 : -1 }
       });
-      if (data.code === 0) {
-        wx.showToast({
-          title: "成功",
-          icon: "success",
-          duration: 3000
-        });
-      }
+    },
+    give() {
+      wx.showModal({
+        title: "温馨提示", //提示的标题,
+        content: "确定要放弃本次面试吗?", //提示的内容,
+        success: async res => {
+          if (res.confirm) {
+            await this.putDetail({
+              id: this.id,
+              params: { status: 1 }
+            });
+          }
+        }
+      });
     }
   },
   created() {},

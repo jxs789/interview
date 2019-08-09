@@ -1,18 +1,13 @@
 <template>
   <div class="wrap">
     <section>
-      <map :longitude="longitude" :latitude="latitude" show-location>
-        <cover-view @click="location">
-          <cover-view class="iconfont icon-weizhi"></cover-view>
-        </cover-view>
-      </map>
+      <MyMap></MyMap>
       <navigator
         url="/pages/personalCenter/main"
         class="userinfo iconfont icon-wode"
         @click="gotouser"
       />
     </section>
-
     <footer class="footer" @click="addexamChange">添加面试</footer>
   </div>
 </template>
@@ -23,28 +18,18 @@ export default {
   props: {},
   components: {},
   data() {
-    return {
-      markers: []
-    };
+    return {};
   },
-  computed: {
-    ...mapState({
-      longitude: state => state.home.longitude,
-      latitude: state => state.home.latitude
-    })
-  },
+  computed: {},
   methods: {
     addexamChange() {
       wx.navigateTo({
         url: "/pages/addInterview/main"
       });
     },
-    ...mapActions({
-      location: "home/getLocation"
-    })
+   
   },
-  mounted(){
-  }
+  mounted() {}
 };
 </script>
 <style scoped lang="scss">
@@ -61,21 +46,6 @@ export default {
 section {
   flex: 1;
   width: 100%;
-  map{
-    width:100%;
-    height: 100%;
-  }
-  cover-view {
-    width: 100rpx;
-    height: 100rpx;
-    color: #1a7dc0;
-    font-weight: bold;
-    position: fixed;
-    bottom: 90rpx;
-    left: 20rpx;
-    font-size: 60rpx;
-    z-index: 9;
-  }
   .userinfo {
     width: 80rpx;
     height: 80rpx;

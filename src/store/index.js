@@ -5,6 +5,7 @@ import home from './modules/home'
 import interviewList from './modules/interviewList'
 import address from './modules/address'
 import addList from './modules/addList'
+import user from './modules/user'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,8 @@ export default new Vuex.Store({
         home,
         interviewList,
         address,
-        addList
+        addList,
+        user
     },
     plugins:[CreateLogger()]
 })

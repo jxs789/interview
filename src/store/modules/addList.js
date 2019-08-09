@@ -13,15 +13,21 @@ export default {
     },
     mutations: {
         updateItem(state, payload) {
-            // console.log('....',payload)
             state.current = { ...state.current, ...payload };
         }
     },
     actions: {
         async submitInterview({ commit }, {...params}) {
-            console.log('pay...', params)
-            const res = await addlist(params);
-            console.log(res)
+            return new Promise(async (resolve)=>{
+                // 填充经纬度
+               params.latitude = params.address.location.lat;
+               params.longitude = params.address.location.lng;
+               // 序列号地址
+               params.address = JSON.stringify(params.address);
+               let result = await addlist(params);
+               console.log('result',result)
+               resolve(result);
+             })
         }
     }
 }
