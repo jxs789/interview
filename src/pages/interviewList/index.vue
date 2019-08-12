@@ -74,7 +74,7 @@ export default {
         status: payload.status,
         page,
         pageSize
-      })
+      });
     },
     //详情
     gotoDetail(id) {
@@ -87,9 +87,7 @@ export default {
   created() {
   },
 
-  mounted() {
-  },
- 
+  mounted() {}
 };
 </script>
 <style scoped lang="">
@@ -153,7 +151,7 @@ export default {
   color: #0faeff;
   border-bottom: 1px solid #0faeff;
 }
-.none{
+.none {
   /* display: block; */
 }
 </style>

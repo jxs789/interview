@@ -1,4 +1,4 @@
-import { decrypt } from '@/service'
+import { decrypt, fingerPrint } from '@/service'
 
 export default {
     //命名空间
@@ -12,15 +12,19 @@ export default {
             state.openid = payload
         },
         updatePhone(state, payload) {
-            // console.log(payload,'444')
             state.phone = payload.phoneNumber
-            // console.log(state.phone,'777')
         }
     },
     actions: {
         async getDecrypt({ commit }, payload) {
             const res = await decrypt(payload);
             commit("updatePhone", res.data)
-        }
+        },
+        async getfinger({ commit }, payload) {
+            console.log(payload, 'pay....')
+            const res = await fingerPrint(payload);
+            console.log(res)
+            // commit("updatePhone", res.data)
+        },
     }
 }

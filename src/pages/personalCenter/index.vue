@@ -88,7 +88,7 @@ export default {
         this.flag = false;
         wx.openSetting({
           success(res) {
-            console.log(res.authSetting);
+            // console.log(res.authSetting);
           }
         });
       }

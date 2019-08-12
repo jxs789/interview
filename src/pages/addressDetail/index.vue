@@ -79,6 +79,7 @@ export default {
         params: { remind: e.target.value ? 1 : -1 }
       });
     },
+    //放弃面试
     give() {
       wx.showModal({
         title: "温馨提示", //提示的标题,
@@ -92,6 +93,12 @@ export default {
           }
         }
       });
+    },
+    //去打卡
+    goToCard(){
+      wx.navigateTo({
+        url:"/pages/punchCard/main"
+      })
     }
   },
   created() {},
