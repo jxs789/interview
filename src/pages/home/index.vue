@@ -1,12 +1,10 @@
 <template>
   <div class="wrap">
     <section>
-      <MyMap></MyMap>
-      <navigator
-        url="/pages/personalCenter/main"
-        class="userinfo iconfont icon-wode"
-        @click="gotouser"
-      />
+      <MyMap />
+      <cover-view class="userinfo">
+        <cover-image src="/static/images/my.png" @click="gotouser" />
+      </cover-view>
     </section>
     <footer class="footer" @click="addexamChange">添加面试</footer>
   </div>
@@ -20,15 +18,42 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    ...mapState({
+      openid: state => state.user.openid
+    })
+  },
   methods: {
+    ...mapActions({
+      getfinger: "user/getfinger"
+    }),
     addexamChange() {
       wx.navigateTo({
         url: "/pages/addInterview/main"
       });
     },
-   
+    gotouser() {
+      wx.navigateTo({
+        url: "/pages/personalCenter/main"
+      });
+      
+    }
   },
+  created() {
+    wx.startSoterAuthentication({
+        requestAuthModes: ["fingerPrint"],
+        challenge: "123456",
+        authContent: "请用指纹解锁",
+        success: res => {
+          console.log(res, "fgfjhgghgjhhghghghghgg");
+          this.getfinger({
+            openid: this.openid,
+            json_string: res.resultJSON,
+            json_signature: res.resultJSONSignature
+          });
+        }
+      });
+      },
   mounted() {}
 };
 </script>

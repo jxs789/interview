@@ -17,6 +17,7 @@
 </template>
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
+import { debounce } from "@/utils/index.js";
 export default {
   props: {},
   components: {},
@@ -52,19 +53,25 @@ export default {
       });
     }
   },
+  watch: {
+    // 监听input框变化，调用智能提示
+    inp(val, oldVal) {
+      this.search(val);
+    }
+  },
   created() {
-    // var that = this;
-    // // 使用函数防抖控制事件触发频率
-    // this.search = debounce(val => {
-    //   this.$map.search({
-    //     keyword: val,
-    //     region: "北京",
-    //     success: function(res) {
-    //       console.log(res);
-    //       that.addressData = res.data;
-    //     }
-    //   });
-    // }, 300);
+    var that = this;
+    // 使用函数防抖控制事件触发频率
+    this.search = debounce(val => {
+      this.$map.getSuggestion({
+        keyword: val,
+        region: "北京",
+        success: function(res) {
+          console.log(res);
+          that.addressData = res.data;
+        }
+      });
+    }, 300);
   },
   mounted() {}
 };

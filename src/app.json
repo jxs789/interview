@@ -2,10 +2,11 @@
   "pages": [
     "pages/home/main",
     "pages/interviewList/main",
-    "pages/personalCenter/main",
-    "pages/addInterview/main",
-    "pages/viewAddress/main",
     "pages/addressDetail/main",
+    "pages/addInterview/main",
+    "pages/punchCard/main",
+    "pages/personalCenter/main",
+    "pages/viewAddress/main",
     "pages/interviewState/main"
   ],
   "window": {
